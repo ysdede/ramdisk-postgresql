@@ -28,9 +28,9 @@ sudo chown -R postgres:postgres /tmp/ramdisk/db
 
 sudo -u postgres /usr/lib/postgresql/14/bin/pg_ctl -D /tmp/ramdisk/db -w start
 sleep 5
-jesse import-candles Binance btc-usdt 2021-12-05 --skip-confirmation
-jesse import-candles Binance eth-usdt 2021-12-05 --skip-confirmation
-jesse import-candles Binance bnb-usdt 2021-12-05 --skip-confirmation
+jesse import-candles Binance btc-usdt 2021-12-01 --skip-confirmation
+jesse import-candles Binance eth-usdt 2021-12-01 --skip-confirmation
+jesse import-candles Binance bnb-usdt 2021-12-01 --skip-confirmation
 
 sudo -u postgres /usr/lib/postgresql/14/bin/vacuumdb --analyze -d jesse_db -e -f
 sudo -u postgres /usr/lib/postgresql/14/bin/reindexdb jesse_db
