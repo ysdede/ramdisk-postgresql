@@ -8,7 +8,7 @@ sudo systemctl stop postgresql
 sudo service postgresql stop  # WSL2
 sudo -u postgres /usr/lib/postgresql/14/bin/pg_ctl -D /tmp/ramdisk/db/ stop
 sudo umount /tmp/ramdisk/
-sleep 10
+sleep 5
 
 ps aux | grep postgresql
 read -rsp $'Press any key to continue...\n' -n1 key
@@ -27,10 +27,10 @@ sudo chmod 0700 -R /tmp/ramdisk/db
 sudo chown -R postgres:postgres /tmp/ramdisk/db
 
 sudo -u postgres /usr/lib/postgresql/14/bin/pg_ctl -D /tmp/ramdisk/db -w start
+sleep 5
+jesse import-candles Binance btc-usdt 2021-12-05 --skip-confirmation
+jesse import-candles Binance eth-usdt 2021-12-05 --skip-confirmation
+jesse import-candles Binance bnb-usdt 2021-12-05 --skip-confirmation
 
-# jesse import-candles Binance btc-usdt 2018-02-09 --skip-confirmation
-# jesse import-candles Binance eth-usdt 2018-02-09 --skip-confirmation
-# jesse import-candles Binance bnb-usdt 2018-02-09 --skip-confirmation
-
-# sudo -u postgres /usr/lib/postgresql/14/bin/vacuumdb  --analyze --verbose -d jesse_db -e -f
-# sudo -u postgres /usr/lib/postgresql/14/bin/reindexdb --verbose jesse_db
+sudo -u postgres /usr/lib/postgresql/14/bin/vacuumdb --analyze -d jesse_db -e -f
+sudo -u postgres /usr/lib/postgresql/14/bin/reindexdb jesse_db
