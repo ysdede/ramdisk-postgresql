@@ -16,7 +16,7 @@ read -rsp $'Press any key to continue...\n' -n1 key
 # Create ramdisk, mount it, set permissions
 sudo mkdir /tmp/ramdisk
 sudo chmod 777 /tmp/ramdisk
-sudo mount -t tmpfs -o size=16G ramdisk /tmp/ramdisk
+sudo mount -t tmpfs -o size=4G ramdisk /tmp/ramdisk
 mount | tail -n 1
 
 wget https://github.com/ysdede/jesse_dbs/releases/download/jesse/db-pigz.tar.gz -O /tmp/ramdisk/db-pigz.tar.gz
