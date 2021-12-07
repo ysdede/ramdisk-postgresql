@@ -6,6 +6,5 @@ It requires at least 3 GB of additional memory on debian/ubuntu-based systems wi
 The database creation process takes about a minute.  
 This may appear to be a waste of time, but it allows me to create 1000 Quantstats reports at once.  
 
-TODO: Add a multithreading uncompression algorithm to help it run faster.
+Added pigz version for faster multithreading decompression.
 
-See releases for links.
